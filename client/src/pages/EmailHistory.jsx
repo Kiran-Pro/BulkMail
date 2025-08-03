@@ -10,7 +10,9 @@ const EmailHistory = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/gethistory");
+        const response = await axios.get(
+          "https://bulkmail-backend-f8a3.onrender.com/gethistory"
+        );
         setEmailData(response.data);
       } catch (error) {
         console.error("Error fetching email history:", error);
