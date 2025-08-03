@@ -21,4 +21,9 @@ BulkMail is a simple and intuitive web application for sending bulk emails using
 - **Backend**: Node.js, Express, MongoDB  
 - **Email Service**: Nodemailer  
 - **Hosting**: Vercel (Frontend), Render (Backend)  
-- **CSV Parsing**: SheetJS (`xlsx`)  
+- **CSV Parsing**: SheetJS (`xlsx`)
+
+## Testing Credential
+email: test1@gmail.com
+password: 1234
+
