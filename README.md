@@ -24,6 +24,7 @@ BulkMail is a simple and intuitive web application for sending bulk emails using
 - **CSV Parsing**: SheetJS (`xlsx`)
 
 ## Testing Credential
-email: test1@gmail.com
+email: test1@gmail.com, 
 password: 1234
+
 
