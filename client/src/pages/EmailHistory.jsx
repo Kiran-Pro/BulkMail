@@ -6,9 +6,11 @@ const EmailHistory = () => {
   const navigate = useNavigate();
   const [emailData, setEmailData] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchHistory = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(
           "https://bulkmail-backend-f8a3.onrender.com/gethistory"
@@ -17,6 +19,8 @@ const EmailHistory = () => {
       } catch (error) {
         console.error("Error fetching email history:", error);
         setError("Failed to load email history.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -38,11 +42,13 @@ const EmailHistory = () => {
       </div>
 
       <div className="flex-grow p-6 md:p-10">
-        {error && (
+        {loading ? (
+          <p className="text-center text-blue-600 font-medium text-sm">
+            Loading...
+          </p>
+        ) : error ? (
           <p className="text-red-500 font-medium mb-4 text-center">{error}</p>
-        )}
-
-        {emailData.length === 0 && !error ? (
+        ) : emailData.length === 0 ? (
           <p className="text-blue-500 text-center text-sm">
             No emails sent yet.
           </p>
