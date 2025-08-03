@@ -26,7 +26,7 @@ function App() {
     }
     setStatus(true);
     axios
-      .post("http://localhost:5000/sendemail", {
+      .post("https://bulkmail-backend-f8a3.onrender.com//sendemail", {
         subject: subject,
         message: message,
         emailList: emailList,

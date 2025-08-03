@@ -12,10 +12,13 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email: email.trim(),
-        password: password.trim(),
-      });
+      const response = await axios.post(
+        "https://bulkmail-backend-f8a3.onrender.com//login",
+        {
+          email: email.trim(),
+          password: password.trim(),
+        }
+      );
 
       if (response.status === 200) {
         alert("Login successfull");
