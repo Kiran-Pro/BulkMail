@@ -6,11 +6,13 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://bulkmail-backend-f8a3.onrender.com/login",
@@ -29,6 +31,8 @@ const LoginPage = () => {
     } catch (error) {
       console.error("Login failed:", error);
       setError("Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
     }
     console.log("Logging in with:", email, password);
   };
@@ -79,7 +83,7 @@ const LoginPage = () => {
             type="submit"
             className="w-full bg-blue-700 text-white py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>
