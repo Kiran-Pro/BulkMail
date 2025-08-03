@@ -13,7 +13,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://bulkmail-backend-f8a3.onrender.com//login",
+        "https://bulkmail-backend-f8a3.onrender.com/login",
         {
           email: email.trim(),
           password: password.trim(),
